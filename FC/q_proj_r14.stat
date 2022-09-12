@@ -1,0 +1,22 @@
+// SourceBoost Linker Function Resource Usage Dump
+
+#GLOBAL:"global",line = 0,ram = 55.1,rom = 0;
+__div_8_8(unsigned char,unsigned char):"E:\Prg\compiler.trunk\picantc\libc\div.c",line = 176,ram = 5.0,rom = 17;
+__rem_8_8(unsigned char,unsigned char):"E:\Prg\compiler.trunk\picantc\libc\div.c",line = 206,ram = 5.0,rom = 17;
+FCM_SevenSegment(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 128,ram = 0.0,rom = 113;
+FCM_clk_pulse(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 259,ram = 1.0,rom = 21;
+FCM_Scan(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 281,ram = 2.0,rom = 80;
+FCM_Display_SevenSegment(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 348,ram = 0.0,rom = 13;
+FCM_Buttons(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 379,ram = 0.0,rom = 4;
+FCM_btn_scan1(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 398,ram = 4.0,rom = 88;
+FCM_btn_scan2(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 511,ram = 2.0,rom = 56;
+FCM_btn_scan3(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 589,ram = 2.0,rom = 56;
+FCM_variable_conditions(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 666,ram = 4.0,rom = 41;
+FCM_btn_conditions(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 728,ram = 0.0,rom = 37;
+main(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 835,ram = 4.0,rom = 201;
+interrupt(void):"D:\Zer01 Electronics\Q_Proj_R14\FC\q_proj_r14.c",line = 1131,ram = 0.0,rom = 11;
+delay_us(unsigned char):"NoSourceFile",line = 0,ram = 0.0,rom = 5;
+_startup(void):"NoSourceFile",line = 0,ram = 0.0,rom = 68;
+#HEAP_BLOCK: 0, 160, 95;
+#HEAP_BLOCK: 1, 288, 48;
+#HEAP_BLOCK: 2, 98, 14;
