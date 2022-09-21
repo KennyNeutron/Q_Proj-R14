@@ -6,32 +6,32 @@
 ;/////////////////////////////////////////////////////////////////////////////////
 
 	include "P16F628A.inc"
-; Heap block 0, size:95 (0x000000A0 - 0x000000FE)
+; Heap block 0, size:80 (0x000000A0 - 0x000000EF)
 __HEAP_BLOCK0_BANK               EQU	0x00000001
 __HEAP_BLOCK0_START_OFFSET       EQU	0x00000020
-__HEAP_BLOCK0_END_OFFSET         EQU	0x0000007E
+__HEAP_BLOCK0_END_OFFSET         EQU	0x0000006F
 ; Heap block 1, size:48 (0x00000120 - 0x0000014F)
 __HEAP_BLOCK1_BANK               EQU	0x00000002
 __HEAP_BLOCK1_START_OFFSET       EQU	0x00000020
 __HEAP_BLOCK1_END_OFFSET         EQU	0x0000004F
-; Heap block 2, size:15 (0x00000061 - 0x0000006F)
+; Heap block 2, size:13 (0x00000072 - 0x0000007E)
 __HEAP_BLOCK2_BANK               EQU	0x00000000
-__HEAP_BLOCK2_START_OFFSET       EQU	0x00000061
-__HEAP_BLOCK2_END_OFFSET         EQU	0x0000006F
+__HEAP_BLOCK2_START_OFFSET       EQU	0x00000072
+__HEAP_BLOCK2_END_OFFSET         EQU	0x0000007E
 ; Heap block 3, size:0 (0x00000000 - 0x00000000)
 __HEAP_BLOCK3_BANK               EQU	0x00000000
 __HEAP_BLOCK3_START_OFFSET       EQU	0x00000000
 __HEAP_BLOCK3_END_OFFSET         EQU	0x00000000
-__div_8_8_00000_arg_a            EQU	0x0000005C ; bytes:1
-__div_8_8_00000_arg_b            EQU	0x0000005D ; bytes:1
-CompTempVarRet218                EQU	0x00000060 ; bytes:1
-__div_8_8_00000_1_r              EQU	0x0000005E ; bytes:1
-__div_8_8_00000_1_i              EQU	0x0000005F ; bytes:1
-__rem_8_8_00000_arg_a            EQU	0x0000005A ; bytes:1
-__rem_8_8_00000_arg_b            EQU	0x0000005B ; bytes:1
-CompTempVarRet220                EQU	0x00000060 ; bytes:1
-__rem_8_8_00000_1_c              EQU	0x0000005E ; bytes:1
-__rem_8_8_00000_1_i              EQU	0x0000005F ; bytes:1
+__div_8_8_00000_arg_a            EQU	0x0000006D ; bytes:1
+__div_8_8_00000_arg_b            EQU	0x0000006E ; bytes:1
+CompTempVarRet218                EQU	0x00000071 ; bytes:1
+__div_8_8_00000_1_r              EQU	0x0000006F ; bytes:1
+__div_8_8_00000_1_i              EQU	0x00000070 ; bytes:1
+__rem_8_8_00000_arg_a            EQU	0x0000006B ; bytes:1
+__rem_8_8_00000_arg_b            EQU	0x0000006C ; bytes:1
+CompTempVarRet220                EQU	0x00000071 ; bytes:1
+__rem_8_8_00000_1_c              EQU	0x0000006F ; bytes:1
+__rem_8_8_00000_1_i              EQU	0x00000070 ; bytes:1
 gbl_status                       EQU	0x00000003 ; bytes:1
 gbl_14_LSR                       EQU	0x00000020 ; bytes:4
 gbl_float_detect_tininess        EQU	0x0000003B ; bytes:1
@@ -82,75 +82,99 @@ gbl_eeadr                        EQU	0x0000009B ; bytes:1
 gbl_eecon1                       EQU	0x0000009C ; bytes:1
 gbl_eecon2                       EQU	0x0000009D ; bytes:1
 gbl_vrcon                        EQU	0x0000009F ; bytes:1
-gbl_FCV_BTN_SHIFT                EQU	0x00000044 ; bit:0
-gbl_FCV_BTN_HOME                 EQU	0x00000044 ; bit:1
+gbl_FCV_BTN_HOME                 EQU	0x00000044 ; bit:0
+gbl_FCV_BTN_SHIFT                EQU	0x00000044 ; bit:1
+gbl_FCV_BLINK_COUNT              EQU	0x00000045 ; bytes:1
+gbl_FCV_SCAN1                    EQU	0x00000046 ; bytes:1
 gbl_FCV_TOGGLE_SHOTCLOCK         EQU	0x00000044 ; bit:2
-gbl_FCV_SCAN1                    EQU	0x00000045 ; bytes:1
-gbl_FCV_BTN_SHOTCLOCK            EQU	0x00000046 ; bytes:1
-gbl_FCV_SCAN2                    EQU	0x00000047 ; bytes:1
 gbl_FCV_DAT                      EQU	0x00000044 ; bit:3
+gbl_FCV_SCAN2                    EQU	0x00000047 ; bytes:1
+gbl_FCV_BTN_SHOTCLOCK            EQU	0x00000048 ; bytes:1
+gbl_FCV_PERIOD                   EQU	0x00000049 ; bytes:1
 gbl_FCV_TOGGLE_GUEST             EQU	0x00000044 ; bit:4
-gbl_FCV_PERIOD                   EQU	0x00000048 ; bytes:1
-gbl_FCV_GAMETIME_SEC             EQU	0x00000049 ; bytes:1
-gbl_FCV_GAMETIME_MIN             EQU	0x0000004A ; bytes:1
+gbl_FCV_GAMETIME_SEC             EQU	0x0000004A ; bytes:1
+gbl_FCV_GAMETIME_MIN             EQU	0x0000004B ; bytes:1
+gbl_FCV_DISPLAY_SEVENSEG         EQU	0x0000004C ; bytes:1
 gbl_FCV_TOGGLE_STARTSTOP         EQU	0x00000044 ; bit:5
-gbl_FCV_DISPLAY_SEVENSEG         EQU	0x0000004B ; bytes:1
-gbl_FCV_TOGGLE_HOME              EQU	0x00000044 ; bit:6
-gbl_FCV_SHIFTING                 EQU	0x00000044 ; bit:7
-gbl_FCV_SWITCH4                  EQU	0x0000004C ; bit:0
-gbl_FCV_BTN_STARTSTOP            EQU	0x0000004C ; bit:1
-gbl_FCV_GUESTSCORE               EQU	0x0000004D ; bytes:1
-gbl_FCV_SWITCH5                  EQU	0x0000004C ; bit:2
-gbl_FCV_BUTTON_SCAN              EQU	0x0000004E ; bytes:1
+gbl_FCV_BTN_STARTSTOP            EQU	0x00000044 ; bit:6
+gbl_FCV_SWITCH4                  EQU	0x00000044 ; bit:7
+gbl_FCV_SHIFTING                 EQU	0x0000004D ; bit:0
+gbl_FCV_TOGGLE_HOME              EQU	0x0000004D ; bit:1
+gbl_FCV_SWITCH5                  EQU	0x0000004D ; bit:2
+gbl_FCV_GUESTSCORE               EQU	0x0000004E ; bytes:1
+gbl_FCV_BTN_GUEST                EQU	0x0000004D ; bit:3
 gbl_FCV_HOMESCORE                EQU	0x0000004F ; bytes:1
-gbl_FCV_BTN_GUEST                EQU	0x0000004C ; bit:3
+gbl_FCV_BUTTON_SCAN              EQU	0x00000050 ; bytes:1
+gbl_FCV_SHOTCLOCK                EQU	0x00000051 ; bytes:1
 gbl_FCV_TIME_COUNTER             EQU	0x00000039 ; bytes:2
-gbl_FCV_SHOTCLOCK                EQU	0x00000050 ; bytes:1
-gbl_FCV_FLAG_STARTSTOP           EQU	0x0000004C ; bit:4
-gbl_FCV_TODISPLAY_SS             EQU	0x00000051 ; bytes:1
+gbl_FCV_FLAG_STARTSTOP           EQU	0x0000004D ; bit:4
+gbl_FCV_FLAG_SETTIME             EQU	0x0000004D ; bit:5
 gbl_FCV_TEMP_SCAN1               EQU	0x00000052 ; bytes:1
-gbl_FCV_TEMP_SCAN2               EQU	0x00000053 ; bytes:1
-gbl_FCV_BTN_BUZZER               EQU	0x0000004C ; bit:5
-gbl_FCLV_LOOP1                   EQU	0x00000054 ; bytes:1
-gbl_FCLV_LOOP2                   EQU	0x00000055 ; bytes:1
-CompTempVar2188                  EQU	0x0000005A ; bytes:1
-CompTempVar2189                  EQU	0x0000005A ; bytes:1
-CompTempVar2190                  EQU	0x0000005B ; bytes:1
-CompTempVar2191                  EQU	0x0000005A ; bytes:1
-CompTempVar2193                  EQU	0x0000005A ; bytes:1
-CompTempVar2194                  EQU	0x0000005B ; bytes:1
-CompTempVar2195                  EQU	0x0000005A ; bytes:1
-CompTempVar2197                  EQU	0x00000056 ; bytes:1
-CompTempVar2198                  EQU	0x00000057 ; bytes:1
-CompTempVar2199                  EQU	0x00000058 ; bytes:1
-CompTempVar2200                  EQU	0x00000059 ; bytes:1
-CompTempVar2201                  EQU	0x00000056 ; bytes:1
-CompTempVar2202                  EQU	0x00000057 ; bytes:1
-CompTempVar2203                  EQU	0x00000056 ; bytes:1
-CompTempVar2204                  EQU	0x00000057 ; bytes:1
-CompTempVar2205                  EQU	0x00000056 ; bytes:1
-CompTempVar2206                  EQU	0x00000057 ; bytes:1
-CompTempVar2207                  EQU	0x00000056 ; bytes:1
-CompTempVar2208                  EQU	0x00000057 ; bytes:1
-CompTempVar2209                  EQU	0x00000056 ; bytes:1
-CompTempVar2210                  EQU	0x00000057 ; bytes:1
-CompTempVar2211                  EQU	0x00000056 ; bytes:1
-CompTempVar2212                  EQU	0x00000057 ; bytes:1
-CompTempVar2213                  EQU	0x00000056 ; bytes:1
-CompTempVar2214                  EQU	0x00000057 ; bytes:1
-CompTempVar2215                  EQU	0x00000058 ; bytes:1
-CompTempVar2216                  EQU	0x00000059 ; bytes:1
-CompTempVar2217                  EQU	0x0000005A ; bytes:1
-CompTempVar2218                  EQU	0x0000005B ; bytes:1
-CompTempVar2219                  EQU	0x0000005C ; bytes:1
-CompTempVar2220                  EQU	0x0000005D ; bytes:1
-CompTempVar2221                  EQU	0x0000005E ; bytes:1
-CompTempVar2222                  EQU	0x0000005E ; bytes:1
-CompTempVar2223                  EQU	0x0000005F ; bytes:1
-CompTempVar2224                  EQU	0x0000005E ; bytes:1
-CompTempVar2225                  EQU	0x0000005F ; bytes:1
-CompTempVar2228                  EQU	0x00000056 ; bytes:1
-delay_us_00000_arg_del           EQU	0x0000005A ; bytes:1
+gbl_FCV_TODISPLAY_SS             EQU	0x00000053 ; bytes:1
+gbl_FCV_TO_SET                   EQU	0x00000054 ; bytes:1
+gbl_FCV_BTN_BUZZER               EQU	0x0000004D ; bit:6
+gbl_FCV_TEMP_SCAN2               EQU	0x00000055 ; bytes:1
+gbl_FCLV_LOOP1                   EQU	0x00000056 ; bytes:1
+gbl_FCLV_LOOP2                   EQU	0x00000057 ; bytes:1
+gbl_FCLV_LOOP3                   EQU	0x00000058 ; bytes:1
+CompTempVar2188                  EQU	0x0000006B ; bytes:1
+CompTempVar2189                  EQU	0x0000006B ; bytes:1
+CompTempVar2190                  EQU	0x0000006C ; bytes:1
+CompTempVar2191                  EQU	0x0000006B ; bytes:1
+CompTempVar2193                  EQU	0x0000006B ; bytes:1
+CompTempVar2194                  EQU	0x0000006C ; bytes:1
+CompTempVar2195                  EQU	0x0000006B ; bytes:1
+CompTempVar2197                  EQU	0x00000059 ; bytes:1
+CompTempVar2198                  EQU	0x0000005A ; bytes:1
+CompTempVar2199                  EQU	0x0000005B ; bytes:1
+CompTempVar2200                  EQU	0x0000005C ; bytes:1
+CompTempVar2201                  EQU	0x00000059 ; bytes:1
+CompTempVar2202                  EQU	0x0000005A ; bytes:1
+CompTempVar2203                  EQU	0x00000059 ; bytes:1
+CompTempVar2204                  EQU	0x0000005A ; bytes:1
+CompTempVar2205                  EQU	0x00000059 ; bytes:1
+CompTempVar2206                  EQU	0x0000005A ; bytes:1
+CompTempVar2207                  EQU	0x00000059 ; bytes:1
+CompTempVar2208                  EQU	0x0000005A ; bytes:1
+CompTempVar2209                  EQU	0x00000059 ; bytes:1
+CompTempVar2210                  EQU	0x0000005A ; bytes:1
+CompTempVar2211                  EQU	0x00000059 ; bytes:1
+CompTempVar2212                  EQU	0x0000005A ; bytes:1
+CompTempVar2213                  EQU	0x00000059 ; bytes:1
+CompTempVar2214                  EQU	0x0000005A ; bytes:1
+CompTempVar2215                  EQU	0x0000005B ; bytes:1
+CompTempVar2216                  EQU	0x0000005C ; bytes:1
+CompTempVar2217                  EQU	0x0000005D ; bytes:1
+CompTempVar2218                  EQU	0x0000005E ; bytes:1
+CompTempVar2219                  EQU	0x0000005F ; bytes:1
+CompTempVar2220                  EQU	0x00000060 ; bytes:1
+CompTempVar2221                  EQU	0x00000061 ; bytes:1
+CompTempVar2222                  EQU	0x00000061 ; bytes:1
+CompTempVar2223                  EQU	0x00000062 ; bytes:1
+CompTempVar2224                  EQU	0x00000061 ; bytes:1
+CompTempVar2225                  EQU	0x00000062 ; bytes:1
+CompTempVar2228                  EQU	0x00000059 ; bytes:1
+CompTempVar2229                  EQU	0x0000005A ; bytes:1
+CompTempVar2230                  EQU	0x0000005B ; bytes:1
+CompTempVar2231                  EQU	0x0000005C ; bytes:1
+CompTempVar2232                  EQU	0x0000005D ; bytes:1
+CompTempVar2233                  EQU	0x0000005E ; bytes:1
+CompTempVar2234                  EQU	0x0000005F ; bytes:1
+CompTempVar2235                  EQU	0x00000060 ; bytes:1
+CompTempVar2236                  EQU	0x00000061 ; bytes:1
+CompTempVar2237                  EQU	0x00000062 ; bytes:1
+CompTempVar2238                  EQU	0x00000063 ; bytes:1
+CompTempVar2239                  EQU	0x00000064 ; bytes:1
+CompTempVar2240                  EQU	0x00000065 ; bytes:1
+CompTempVar2241                  EQU	0x00000066 ; bytes:1
+CompTempVar2242                  EQU	0x00000067 ; bytes:1
+CompTempVar2243                  EQU	0x00000068 ; bytes:1
+CompTempVar2244                  EQU	0x00000069 ; bytes:1
+CompTempVar2245                  EQU	0x0000006A ; bytes:1
+CompTempVar2246                  EQU	0x00000059 ; bytes:1
+CompTempVar2247                  EQU	0x0000005A ; bytes:1
+CompTempVar2248                  EQU	0x00000059 ; bytes:1
+delay_us_00000_arg_del           EQU	0x0000006B ; bytes:1
 Int1Context                      EQU	0x0000007F ; bytes:1
 Int1BContext                     EQU	0x00000034 ; bytes:3
 	ORG 0x00000000
@@ -382,10 +406,10 @@ FCM_Scan_S_00053
 ; { FCM_Scan_ShiftReg ; function begin
 	BCF STATUS, RP0
 	BCF STATUS, RP1
-	CLRF gbl_FCLV_LOOP1
+	CLRF gbl_FCLV_LOOP2
 label17
 	MOVLW 0x08
-	SUBWF gbl_FCLV_LOOP1, W
+	SUBWF gbl_FCLV_LOOP2, W
 	BTFSC STATUS,C
 	GOTO	label20
 	MOVLW 0x01
@@ -422,13 +446,13 @@ label19
 	MOVF gbl_FCV_SCAN1, F
 	BCF STATUS,C
 	RRF gbl_FCV_SCAN1, F
-	INCF gbl_FCLV_LOOP1, F
+	INCF gbl_FCLV_LOOP2, F
 	GOTO	label17
 label20
-	CLRF gbl_FCLV_LOOP2
+	CLRF gbl_FCLV_LOOP3
 label21
 	MOVLW 0x08
-	SUBWF gbl_FCLV_LOOP2, W
+	SUBWF gbl_FCLV_LOOP3, W
 	BTFSC STATUS,C
 	RETURN
 	MOVLW 0x01
@@ -465,7 +489,7 @@ label23
 	MOVF gbl_FCV_SCAN2, F
 	BCF STATUS,C
 	RRF gbl_FCV_SCAN2, F
-	INCF gbl_FCLV_LOOP2, F
+	INCF gbl_FCLV_LOOP3, F
 	GOTO	label21
 ; } FCM_Scan_ShiftReg function end
 
@@ -541,10 +565,10 @@ FCM_btn_sc_00059
 	DECF CompTempVar2209, W
 	BTFSC STATUS,Z
 	INCF CompTempVar2210, F
-	BCF gbl_FCV_SWITCH4,0
+	BCF gbl_FCV_SWITCH4,7
 	MOVF CompTempVar2210, W
 	BTFSS STATUS,Z
-	BSF gbl_FCV_SWITCH4,0
+	BSF gbl_FCV_SWITCH4,7
 	MOVLW 0x02
 	BSF STATUS, RP0
 	IORWF gbl_trisa, W
@@ -562,13 +586,13 @@ FCM_btn_sc_00059
 	MOVF CompTempVar2212, W
 	BTFSS STATUS,Z
 	BSF gbl_FCV_SWITCH5,2
-	BTFSC gbl_FCV_SWITCH4,0
+	BTFSC gbl_FCV_SWITCH4,7
 	GOTO	label28
-	BSF gbl_FCV_BTN_HOME,1
+	BSF gbl_FCV_BTN_HOME,0
 	RETURN
 label28
-	BCF gbl_FCV_BTN_HOME,1
-	BCF gbl_FCV_TOGGLE_HOME,6
+	BCF gbl_FCV_BTN_HOME,0
+	BCF gbl_FCV_TOGGLE_HOME,1
 	BTFSC gbl_FCV_SWITCH5,2
 	GOTO	label29
 	MOVLW 0x01
@@ -604,10 +628,10 @@ FCM_btn_sc_00058
 	DECF CompTempVar2205, W
 	BTFSC STATUS,Z
 	INCF CompTempVar2206, F
-	BCF gbl_FCV_SWITCH4,0
+	BCF gbl_FCV_SWITCH4,7
 	MOVF CompTempVar2206, W
 	BTFSS STATUS,Z
-	BSF gbl_FCV_SWITCH4,0
+	BSF gbl_FCV_SWITCH4,7
 	MOVLW 0x02
 	BSF STATUS, RP0
 	IORWF gbl_trisa, W
@@ -625,19 +649,19 @@ FCM_btn_sc_00058
 	MOVF CompTempVar2208, W
 	BTFSS STATUS,Z
 	BSF gbl_FCV_SWITCH5,2
-	BTFSC gbl_FCV_SWITCH4,0
+	BTFSC gbl_FCV_SWITCH4,7
 	GOTO	label30
-	BSF gbl_FCV_BTN_STARTSTOP,1
+	BSF gbl_FCV_BTN_STARTSTOP,6
 	RETURN
 label30
-	BCF gbl_FCV_BTN_STARTSTOP,1
+	BCF gbl_FCV_BTN_STARTSTOP,6
 	BCF gbl_FCV_TOGGLE_STARTSTOP,5
 	BTFSC gbl_FCV_SWITCH5,2
 	GOTO	label31
-	BSF gbl_FCV_BTN_SHIFT,0
+	BSF gbl_FCV_BTN_SHIFT,1
 	RETURN
 label31
-	BCF gbl_FCV_BTN_SHIFT,0
+	BCF gbl_FCV_BTN_SHIFT,1
 	RETURN
 ; } FCM_btn_scan2 function end
 
@@ -665,10 +689,10 @@ FCM_btn_sc_00057
 	DECF CompTempVar2201, W
 	BTFSC STATUS,Z
 	INCF CompTempVar2202, F
-	BCF gbl_FCV_SWITCH4,0
+	BCF gbl_FCV_SWITCH4,7
 	MOVF CompTempVar2202, W
 	BTFSS STATUS,Z
-	BSF gbl_FCV_SWITCH4,0
+	BSF gbl_FCV_SWITCH4,7
 	MOVLW 0x02
 	BSF STATUS, RP0
 	IORWF gbl_trisa, W
@@ -686,7 +710,7 @@ FCM_btn_sc_00057
 	MOVF CompTempVar2204, W
 	BTFSS STATUS,Z
 	BSF gbl_FCV_SWITCH5,2
-	BTFSC gbl_FCV_SWITCH4,0
+	BTFSC gbl_FCV_SWITCH4,7
 	GOTO	label32
 	BSF gbl_FCV_BTN_GUEST,3
 	RETURN
@@ -695,10 +719,10 @@ label32
 	BCF gbl_FCV_TOGGLE_GUEST,4
 	BTFSC gbl_FCV_SWITCH5,2
 	GOTO	label33
-	BSF gbl_FCV_BTN_BUZZER,5
+	BSF gbl_FCV_BTN_BUZZER,6
 	RETURN
 label33
-	BCF gbl_FCV_BTN_BUZZER,5
+	BCF gbl_FCV_BTN_BUZZER,6
 	RETURN
 ; } FCM_btn_scan1 function end
 
@@ -721,11 +745,39 @@ FCM_Displa_00054
 ; } FCM_Display_7Seg function end
 
 	ORG 0x000001E0
+FCM_button_0005D
+; { FCM_button_condition_SETTING ; function begin
+	BCF STATUS, RP0
+	BCF STATUS, RP1
+	CLRF CompTempVar2247
+	DECF gbl_FCV_BTN_SHOTCLOCK, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2247, F
+	CLRF CompTempVar2246
+	BTFSS gbl_FCV_TOGGLE_SHOTCLOCK,2
+	INCF CompTempVar2246, F
+	MOVF CompTempVar2246, W
+	ANDWF CompTempVar2247, W
+	BTFSC STATUS,Z
+	RETURN
+	INCF gbl_FCV_TO_SET, W
+	MOVWF gbl_FCV_TO_SET
+	BSF gbl_FCV_TOGGLE_SHOTCLOCK,2
+	MOVF gbl_FCV_TO_SET, W
+	XORLW 0x08
+	BTFSS STATUS,Z
+	RETURN
+	MOVLW 0x01
+	MOVWF gbl_FCV_TO_SET
+	RETURN
+; } FCM_button_condition_SETTING function end
+
+	ORG 0x000001F7
 FCM_button_0005A
 ; { FCM_button_conditions ; function begin
 	BCF STATUS, RP0
 	BCF STATUS, RP1
-	BTFSS gbl_FCV_BTN_BUZZER,5
+	BTFSS gbl_FCV_BTN_BUZZER,6
 	GOTO	label34
 	MOVLW 0x7F
 	BSF STATUS, RP0
@@ -750,16 +802,16 @@ label34
 	MOVWF gbl_portb
 label35
 	CLRF CompTempVar2214
-	BTFSC gbl_FCV_BTN_HOME,1
+	BTFSC gbl_FCV_BTN_HOME,0
 	INCF CompTempVar2214, F
 	CLRF CompTempVar2213
-	BTFSS gbl_FCV_TOGGLE_HOME,6
+	BTFSS gbl_FCV_TOGGLE_HOME,1
 	INCF CompTempVar2213, F
 	MOVF CompTempVar2213, W
 	ANDWF CompTempVar2214, W
 	BTFSC STATUS,Z
 	GOTO	label40
-	BTFSS gbl_FCV_BTN_SHIFT,0
+	BTFSS gbl_FCV_BTN_SHIFT,1
 	GOTO	label36
 	DECF gbl_FCV_HOMESCORE, W
 	MOVWF gbl_FCV_HOMESCORE
@@ -790,7 +842,7 @@ label38
 	BTFSC STATUS,Z
 	CLRF gbl_FCV_HOMESCORE
 label39
-	BSF gbl_FCV_TOGGLE_HOME,6
+	BSF gbl_FCV_TOGGLE_HOME,1
 label40
 	CLRF CompTempVar2216
 	BTFSC gbl_FCV_BTN_GUEST,3
@@ -802,7 +854,7 @@ label40
 	ANDWF CompTempVar2216, W
 	BTFSC STATUS,Z
 	GOTO	label45
-	BTFSS gbl_FCV_BTN_SHIFT,0
+	BTFSS gbl_FCV_BTN_SHIFT,1
 	GOTO	label41
 	DECF gbl_FCV_GUESTSCORE, W
 	MOVWF gbl_FCV_GUESTSCORE
@@ -846,7 +898,7 @@ label45
 	ANDWF CompTempVar2218, W
 	BTFSC STATUS,Z
 	GOTO	label48
-	BTFSS gbl_FCV_BTN_SHIFT,0
+	BTFSS gbl_FCV_BTN_SHIFT,1
 	GOTO	label46
 	MOVLW 0x0E
 	MOVWF gbl_FCV_SHOTCLOCK
@@ -858,7 +910,7 @@ label47
 	BSF gbl_FCV_TOGGLE_SHOTCLOCK,2
 label48
 	CLRF CompTempVar2220
-	BTFSC gbl_FCV_BTN_STARTSTOP,1
+	BTFSC gbl_FCV_BTN_STARTSTOP,6
 	INCF CompTempVar2220, F
 	CLRF CompTempVar2219
 	BTFSS gbl_FCV_TOGGLE_STARTSTOP,5
@@ -867,20 +919,26 @@ label48
 	ANDWF CompTempVar2220, W
 	BTFSC STATUS,Z
 	RETURN
-	BTFSS gbl_FCV_FLAG_STARTSTOP,4
+	BTFSS gbl_FCV_BTN_SHIFT,1
 	GOTO	label49
-	BCF gbl_FCV_FLAG_STARTSTOP,4
-	GOTO	label50
+	BSF gbl_FCV_FLAG_SETTIME,5
+	GOTO	label52
 label49
-	BSF gbl_FCV_FLAG_STARTSTOP,4
+	BTFSS gbl_FCV_FLAG_STARTSTOP,4
+	GOTO	label50
+	BCF gbl_FCV_FLAG_STARTSTOP,4
+	GOTO	label51
 label50
+	BSF gbl_FCV_FLAG_STARTSTOP,4
+label51
 	CLRF gbl_FCV_TIME_COUNTER
 	CLRF gbl_FCV_TIME_COUNTER+D'1'
+label52
 	BSF gbl_FCV_TOGGLE_STARTSTOP,5
 	RETURN
 ; } FCM_button_conditions function end
 
-	ORG 0x0000026A
+	ORG 0x00000285
 FCM_Interr_00056
 ; { FCM_Interrupt ; function begin
 	BCF STATUS, RP0
@@ -892,32 +950,32 @@ FCM_Interr_00056
 	MOVF gbl_FCV_BUTTON_SCAN, W
 	XORLW 0x01
 	BTFSC STATUS,Z
-	GOTO	label51
+	GOTO	label53
 	XORLW 0x03
 	BTFSC STATUS,Z
-	GOTO	label52
+	GOTO	label54
 	XORLW 0x01
 	BTFSC STATUS,Z
-	GOTO	label53
-	GOTO	label54
-label51
-	CALL FCM_btn_sc_00057
-	GOTO	label54
-label52
-	CALL FCM_btn_sc_00058
-	GOTO	label54
+	GOTO	label55
+	GOTO	label56
 label53
-	CALL FCM_btn_sc_00059
+	CALL FCM_btn_sc_00057
+	GOTO	label56
 label54
+	CALL FCM_btn_sc_00058
+	GOTO	label56
+label55
+	CALL FCM_btn_sc_00059
+label56
 	INCF gbl_FCV_BUTTON_SCAN, W
 	MOVWF gbl_FCV_BUTTON_SCAN
 	MOVLW 0x04
 	SUBWF gbl_FCV_BUTTON_SCAN, W
 	BTFSS STATUS,C
-	GOTO	label55
+	GOTO	label57
 	MOVLW 0x01
 	MOVWF gbl_FCV_BUTTON_SCAN
-label55
+label57
 	MOVF gbl_FCV_TEMP_SCAN1, W
 	MOVWF gbl_FCV_SCAN1
 	MOVF gbl_FCV_TEMP_SCAN2, W
@@ -925,7 +983,399 @@ label55
 	RETURN
 ; } FCM_Interrupt function end
 
-	ORG 0x0000028D
+	ORG 0x000002A8
+FCM_DISPLA_0005C
+; { FCM_DISPLAY_BLINKING ; function begin
+	BCF STATUS, RP0
+	BCF STATUS, RP1
+	INCF gbl_FCV_BLINK_COUNT, W
+	MOVWF gbl_FCV_BLINK_COUNT
+	CLRF CompTempVar2229
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2229, F
+	CLRF CompTempVar2228
+	DECF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2228, F
+	MOVF CompTempVar2228, W
+	ANDWF CompTempVar2229, W
+	BTFSC STATUS,Z
+	GOTO	label58
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x80
+	MOVWF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label59
+label58
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x80
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GAMETIME_MIN, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label59
+	CLRF CompTempVar2231
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2231, F
+	CLRF CompTempVar2230
+	MOVLW 0x02
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2230, F
+	MOVF CompTempVar2230, W
+	ANDWF CompTempVar2231, W
+	BTFSC STATUS,Z
+	GOTO	label60
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x40
+	MOVWF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label61
+label60
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x40
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GAMETIME_MIN, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label61
+	CLRF CompTempVar2233
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2233, F
+	CLRF CompTempVar2232
+	MOVLW 0x03
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2232, F
+	MOVF CompTempVar2232, W
+	ANDWF CompTempVar2233, W
+	BTFSC STATUS,Z
+	GOTO	label62
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x20
+	MOVWF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label63
+label62
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x20
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GAMETIME_SEC, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label63
+	CLRF CompTempVar2235
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2235, F
+	CLRF CompTempVar2234
+	MOVLW 0x04
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2234, F
+	MOVF CompTempVar2234, W
+	ANDWF CompTempVar2235, W
+	BTFSC STATUS,Z
+	GOTO	label64
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x10
+	MOVWF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label65
+label64
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x10
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GAMETIME_SEC, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label65
+	CLRF CompTempVar2237
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2237, F
+	CLRF CompTempVar2236
+	MOVLW 0x05
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2236, F
+	MOVF CompTempVar2236, W
+	ANDWF CompTempVar2237, W
+	BTFSC STATUS,Z
+	GOTO	label66
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	MOVLW 0x10
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label67
+label66
+	MOVLW 0x10
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVF gbl_FCV_SHOTCLOCK, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label67
+	CLRF CompTempVar2239
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2239, F
+	CLRF CompTempVar2238
+	MOVLW 0x06
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2238, F
+	MOVF CompTempVar2238, W
+	ANDWF CompTempVar2239, W
+	BTFSC STATUS,Z
+	GOTO	label68
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	MOVLW 0x08
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label69
+label68
+	MOVLW 0x08
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVF gbl_FCV_SHOTCLOCK, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label69
+	CLRF CompTempVar2241
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x14
+	BTFSS STATUS,C
+	INCF CompTempVar2241, F
+	CLRF CompTempVar2240
+	MOVLW 0x07
+	SUBWF gbl_FCV_TO_SET, W
+	BTFSC STATUS,Z
+	INCF CompTempVar2240, F
+	MOVF CompTempVar2240, W
+	ANDWF CompTempVar2241, W
+	BTFSC STATUS,Z
+	GOTO	label70
+	MOVF gbl_FCV_BLINK_COUNT, W
+	SUBLW 0x28
+	BTFSS STATUS,C
+	CLRF gbl_FCV_BLINK_COUNT
+	MOVLW 0x04
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	GOTO	label71
+label70
+	MOVLW 0x04
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVF gbl_FCV_PERIOD, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+label71
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x08
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_HOMESCORE, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x64
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	MOVF gbl_FCV_TODISPLAY_SS, F
+	BTFSS STATUS,Z
+	GOTO	label72
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+label72
+	CALL FCM_Displa_00054
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x04
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_HOMESCORE, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x64
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CLRF CompTempVar2243
+	INCF CompTempVar2243, F
+	MOVF gbl_FCV_TODISPLAY_SS, F
+	BTFSS STATUS,Z
+	BCF CompTempVar2243,0
+	CLRF CompTempVar2242
+	MOVLW 0x64
+	SUBWF gbl_FCV_HOMESCORE, W
+	BTFSS STATUS,C
+	INCF CompTempVar2242, F
+	MOVF CompTempVar2242, W
+	ANDWF CompTempVar2243, W
+	BTFSC STATUS,Z
+	GOTO	label73
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+label73
+	CALL FCM_Displa_00054
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x02
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_HOMESCORE, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	CLRF gbl_FCV_SCAN1
+	MOVLW 0x01
+	MOVWF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GUESTSCORE, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x64
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	MOVF gbl_FCV_TODISPLAY_SS, F
+	BTFSS STATUS,Z
+	GOTO	label74
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+label74
+	CALL FCM_Displa_00054
+	MOVLW 0x80
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GUESTSCORE, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x64
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF __div_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __div_8_8_00000_arg_b
+	CALL __div_8_8_00000
+	MOVF CompTempVarRet218, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CLRF CompTempVar2245
+	INCF CompTempVar2245, F
+	MOVF gbl_FCV_TODISPLAY_SS, F
+	BTFSS STATUS,Z
+	BCF CompTempVar2245,0
+	CLRF CompTempVar2244
+	MOVLW 0x64
+	SUBWF gbl_FCV_GUESTSCORE, W
+	BTFSS STATUS,C
+	INCF CompTempVar2244, F
+	MOVF CompTempVar2244, W
+	ANDWF CompTempVar2245, W
+	BTFSC STATUS,Z
+	GOTO	label75
+	MOVLW 0xFF
+	MOVWF gbl_FCV_TODISPLAY_SS
+label75
+	CALL FCM_Displa_00054
+	MOVLW 0x40
+	MOVWF gbl_FCV_SCAN1
+	CLRF gbl_FCV_SCAN2
+	MOVF gbl_FCV_GUESTSCORE, W
+	MOVWF __rem_8_8_00000_arg_a
+	MOVLW 0x0A
+	MOVWF __rem_8_8_00000_arg_b
+	CALL __rem_8_8_00000
+	MOVF CompTempVarRet220, W
+	MOVWF gbl_FCV_TODISPLAY_SS
+	CALL FCM_Displa_00054
+	RETURN
+; } FCM_DISPLAY_BLINKING function end
+
+	ORG 0x00000419
 FCM_DISPLA_00055
 ; { FCM_DISPLAY_BOARD_DATA ; function begin
 	MOVLW 0x10
@@ -942,10 +1392,10 @@ FCM_DISPLA_00055
 	MOVWF gbl_FCV_TODISPLAY_SS
 	MOVF gbl_FCV_TODISPLAY_SS, F
 	BTFSS STATUS,Z
-	GOTO	label56
+	GOTO	label76
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label56
+label76
 	CALL FCM_Displa_00054
 	MOVLW 0x08
 	MOVWF gbl_FCV_SCAN1
@@ -970,10 +1420,10 @@ label56
 	MOVWF gbl_FCV_TODISPLAY_SS
 	MOVF gbl_FCV_TODISPLAY_SS, F
 	BTFSS STATUS,Z
-	GOTO	label57
+	GOTO	label77
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label57
+label77
 	CALL FCM_Displa_00054
 	CLRF gbl_FCV_SCAN1
 	MOVLW 0x40
@@ -1020,10 +1470,10 @@ label57
 	MOVWF gbl_FCV_TODISPLAY_SS
 	MOVF gbl_FCV_TODISPLAY_SS, F
 	BTFSS STATUS,Z
-	GOTO	label58
+	GOTO	label78
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label58
+label78
 	CALL FCM_Displa_00054
 	CLRF gbl_FCV_SCAN1
 	MOVLW 0x04
@@ -1053,10 +1503,10 @@ label58
 	MOVF CompTempVar2197, W
 	ANDWF CompTempVar2198, W
 	BTFSC STATUS,Z
-	GOTO	label59
+	GOTO	label79
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label59
+label79
 	CALL FCM_Displa_00054
 	CLRF gbl_FCV_SCAN1
 	MOVLW 0x02
@@ -1081,10 +1531,10 @@ label59
 	MOVWF gbl_FCV_TODISPLAY_SS
 	MOVF gbl_FCV_TODISPLAY_SS, F
 	BTFSS STATUS,Z
-	GOTO	label60
+	GOTO	label80
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label60
+label80
 	CALL FCM_Displa_00054
 	MOVLW 0x80
 	MOVWF gbl_FCV_SCAN1
@@ -1114,10 +1564,10 @@ label60
 	MOVF CompTempVar2199, W
 	ANDWF CompTempVar2200, W
 	BTFSC STATUS,Z
-	GOTO	label61
+	GOTO	label81
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-label61
+label81
 	CALL FCM_Displa_00054
 	MOVLW 0x40
 	MOVWF gbl_FCV_SCAN1
@@ -1139,7 +1589,7 @@ label61
 	RETURN
 ; } FCM_DISPLAY_BOARD_DATA function end
 
-	ORG 0x00000358
+	ORG 0x000004E4
 main
 ; { main ; function begin
 	MOVLW 0x07
@@ -1156,9 +1606,9 @@ main
 	BSF gbl_t2con,2
 	MOVLW 0x07
 	ANDWF gbl_t2con, W
-	MOVWF CompTempVar2228
+	MOVWF CompTempVar2248
 	MOVLW 0x78
-	IORWF CompTempVar2228, W
+	IORWF CompTempVar2248, W
 	MOVWF gbl_t2con
 	MOVLW 0x0F
 	BSF STATUS, RP0
@@ -1177,14 +1627,41 @@ main
 	MOVWF gbl_FCV_PERIOD
 	CLRF gbl_FCV_BUTTON_SCAN
 	BSF gbl_FCV_FLAG_STARTSTOP,4
-label62
+	CLRF gbl_FCLV_LOOP1
+label82
+	MOVLW 0x64
+	SUBWF gbl_FCLV_LOOP1, W
+	BTFSC STATUS,C
+	GOTO	label83
+	CALL FCM_DISPLA_00055
+	CALL FCM_Interr_00056
+	INCF gbl_FCLV_LOOP1, F
+	GOTO	label82
+label83
+	BCF gbl_FCV_BTN_BUZZER,6
+	BCF gbl_FCV_BTN_GUEST,3
+	BCF gbl_FCV_BTN_HOME,0
+	BCF gbl_FCV_BTN_SHIFT,1
+	CLRF gbl_FCV_BTN_SHOTCLOCK
+	BCF gbl_FCV_BTN_STARTSTOP,6
+	BCF gbl_FCV_FLAG_STARTSTOP,4
+	MOVLW 0x01
+	MOVWF gbl_FCV_TO_SET
+label84
+	BTFSS gbl_FCV_FLAG_SETTIME,5
+	GOTO	label85
+	CALL FCM_DISPLA_0005C
+	CALL FCM_Interr_00056
+	CALL FCM_button_0005D
+	GOTO	label84
+label85
 	CALL FCM_DISPLA_00055
 	CALL FCM_Interr_00056
 	CALL FCM_button_0005A
-	GOTO	label62
+	GOTO	label84
 ; } main function end
 
-	ORG 0x0000037F
+	ORG 0x00000523
 _startup
 	MOVLW 0xD5
 	BCF STATUS, RP0
@@ -1223,59 +1700,62 @@ _startup
 	CLRF gbl_float_rounding_mode
 	CLRF gbl_float_exception_flags
 	CLRF gbl_float_detect_tininess
-	BSF gbl_FCV_BTN_SHIFT,0
-	BSF gbl_FCV_BTN_HOME,1
-	BCF gbl_FCV_TOGGLE_SHOTCLOCK,2
+	BSF gbl_FCV_BTN_HOME,0
+	BSF gbl_FCV_BTN_SHIFT,1
+	CLRF gbl_FCV_BLINK_COUNT
 	MOVLW 0xFF
 	MOVWF gbl_FCV_SCAN1
-	MOVLW 0x01
-	MOVWF gbl_FCV_BTN_SHOTCLOCK
+	BCF gbl_FCV_TOGGLE_SHOTCLOCK,2
+	BCF gbl_FCV_DAT,3
 	MOVLW 0xFF
 	MOVWF gbl_FCV_SCAN2
-	BCF gbl_FCV_DAT,3
-	BCF gbl_FCV_TOGGLE_GUEST,4
+	MOVLW 0x01
+	MOVWF gbl_FCV_BTN_SHOTCLOCK
 	MOVLW 0x01
 	MOVWF gbl_FCV_PERIOD
+	BCF gbl_FCV_TOGGLE_GUEST,4
 	MOVLW 0x0A
 	MOVWF gbl_FCV_GAMETIME_MIN
-	BCF gbl_FCV_TOGGLE_STARTSTOP,5
 	MOVLW 0xFF
 	MOVWF gbl_FCV_DISPLAY_SEVENSEG
-	BCF gbl_FCV_TOGGLE_HOME,6
-	BCF gbl_FCV_SHIFTING,7
-	BSF gbl_FCV_SWITCH4,0
-	BSF gbl_FCV_BTN_STARTSTOP,1
-	CLRF gbl_FCV_GUESTSCORE
+	BCF gbl_FCV_TOGGLE_STARTSTOP,5
+	BSF gbl_FCV_BTN_STARTSTOP,6
+	BSF gbl_FCV_SWITCH4,7
+	BCF gbl_FCV_SHIFTING,0
+	BCF gbl_FCV_TOGGLE_HOME,1
 	BSF gbl_FCV_SWITCH5,2
-	CLRF gbl_FCV_BUTTON_SCAN
-	CLRF gbl_FCV_HOMESCORE
+	CLRF gbl_FCV_GUESTSCORE
 	BSF gbl_FCV_BTN_GUEST,3
-	CLRF gbl_FCV_TIME_COUNTER
-	CLRF gbl_FCV_TIME_COUNTER+D'1'
+	CLRF gbl_FCV_HOMESCORE
+	CLRF gbl_FCV_BUTTON_SCAN
 	MOVLW 0x18
 	MOVWF gbl_FCV_SHOTCLOCK
+	CLRF gbl_FCV_TIME_COUNTER
+	CLRF gbl_FCV_TIME_COUNTER+D'1'
 	BCF gbl_FCV_FLAG_STARTSTOP,4
+	BCF gbl_FCV_FLAG_SETTIME,5
+	CLRF gbl_FCV_TEMP_SCAN1
 	MOVLW 0xFF
 	MOVWF gbl_FCV_TODISPLAY_SS
-	CLRF gbl_FCV_TEMP_SCAN1
+	CLRF gbl_FCV_TO_SET
+	BSF gbl_FCV_BTN_BUZZER,6
 	CLRF gbl_FCV_TEMP_SCAN2
-	BSF gbl_FCV_BTN_BUZZER,5
 	BCF PCLATH,3
 	BCF PCLATH,4
 	GOTO	main
-	ORG 0x000003CC
+	ORG 0x00000573
 interrupt
 ; { interrupt ; function begin
 	BCF STATUS, RP0
 	BCF STATUS, RP1
 	BTFSS gbl_pir1,1
-	GOTO	label64
+	GOTO	label87
 	BSF STATUS, RP0
 	BTFSS gbl_pie1,1
-	GOTO	label64
+	GOTO	label87
 	CALL FCM_TIMEKE_0005B
 	BCF gbl_pir1,1
-label64
+label87
 	BCF STATUS, RP0
 	SWAPF Int1BContext+D'2', W
 	MOVWF FSR

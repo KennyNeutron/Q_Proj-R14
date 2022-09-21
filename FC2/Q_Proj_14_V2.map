@@ -26,13 +26,15 @@ Address  Length   Unique Name      Name
 00000167:00000036 FCM_btn_sc_00058 FCM_btn_scan2(void)  
 0000019D:00000036 FCM_btn_sc_00057 FCM_btn_scan1(void)  
 000001D3:0000000D FCM_Displa_00054 FCM_Display_7Seg(void)  
-000001E0:0000008A FCM_button_0005A FCM_button_conditions(void)  
-0000026A:00000023 FCM_Interr_00056 FCM_Interrupt(void)  
-0000028D:000000CB FCM_DISPLA_00055 FCM_DISPLAY_BOARD_DATA(void)  
-00000358:00000027 main             main(void)  
-0000037F:0000004D _startup_00000   _startup(void)  
-000003CC:00000013 interrupt        interrupt(void)  
-000003DF:00000421 *Unused Block 
+000001E0:00000017 FCM_button_0005D FCM_button_condition_SETTING(void)  
+000001F7:0000008E FCM_button_0005A FCM_button_conditions(void)  
+00000285:00000023 FCM_Interr_00056 FCM_Interrupt(void)  
+000002A8:00000171 FCM_DISPLA_0005C FCM_DISPLAY_BLINKING(void)  
+00000419:000000CB FCM_DISPLA_00055 FCM_DISPLAY_BOARD_DATA(void)  
+000004E4:0000003F main             main(void)  
+00000523:00000050 _startup_00000   _startup(void)  
+00000573:00000013 interrupt        interrupt(void)  
+00000586:0000027A *Unused Block 
 
 Register usage
 ==============
@@ -78,35 +80,52 @@ Address  Bit Lengh Bit Mask   Unique Name                      Name
 00000041:00000008             gbl_15_gbl_bSign                 gbl_bSign
 00000042:00000008             gbl_15_gbl_zSign                 gbl_zSign
 00000043:00000008             gbl_15_gbl_zSigZero              gbl_zSigZero
-00000044:00000001  0b10000000 gbl_FCV_SHIFTING                 FCV_SHIFTING
-00000045:00000008             gbl_FCV_SCAN1                    FCV_SCAN1
-00000046:00000008             gbl_FCV_BTN_SHOTCLOCK            FCV_BTN_SHOTCLOCK
+00000044:00000001  0b10000000 gbl_FCV_SWITCH4                  FCV_SWITCH4
+00000045:00000008             gbl_FCV_BLINK_COUNT              FCV_BLINK_COUNT
+00000046:00000008             gbl_FCV_SCAN1                    FCV_SCAN1
 00000047:00000008             gbl_FCV_SCAN2                    FCV_SCAN2
-00000048:00000008             gbl_FCV_PERIOD                   FCV_PERIOD
-00000049:00000008             gbl_FCV_GAMETIME_SEC             FCV_GAMETIME_SEC
-0000004A:00000008             gbl_FCV_GAMETIME_MIN             FCV_GAMETIME_MIN
-0000004B:00000008             gbl_FCV_DISPLAY_SEVENSEG         FCV_DISPLAY_SEVENSEG
-0000004C:00000001  0b00100000 gbl_FCV_BTN_BUZZER               FCV_BTN_BUZZER
-0000004D:00000008             gbl_FCV_GUESTSCORE               FCV_GUESTSCORE
-0000004E:00000008             gbl_FCV_BUTTON_SCAN              FCV_BUTTON_SCAN
+00000048:00000008             gbl_FCV_BTN_SHOTCLOCK            FCV_BTN_SHOTCLOCK
+00000049:00000008             gbl_FCV_PERIOD                   FCV_PERIOD
+0000004A:00000008             gbl_FCV_GAMETIME_SEC             FCV_GAMETIME_SEC
+0000004B:00000008             gbl_FCV_GAMETIME_MIN             FCV_GAMETIME_MIN
+0000004C:00000008             gbl_FCV_DISPLAY_SEVENSEG         FCV_DISPLAY_SEVENSEG
+0000004D:00000001  0b01000000 gbl_FCV_BTN_BUZZER               FCV_BTN_BUZZER
+0000004E:00000008             gbl_FCV_GUESTSCORE               FCV_GUESTSCORE
 0000004F:00000008             gbl_FCV_HOMESCORE                FCV_HOMESCORE
-00000050:00000008             gbl_FCV_SHOTCLOCK                FCV_SHOTCLOCK
-00000051:00000008             gbl_FCV_TODISPLAY_SS             FCV_TODISPLAY_SS
+00000050:00000008             gbl_FCV_BUTTON_SCAN              FCV_BUTTON_SCAN
+00000051:00000008             gbl_FCV_SHOTCLOCK                FCV_SHOTCLOCK
 00000052:00000008             gbl_FCV_TEMP_SCAN1               FCV_TEMP_SCAN1
-00000053:00000008             gbl_FCV_TEMP_SCAN2               FCV_TEMP_SCAN2
-00000054:00000008             gbl_FCLV_LOOP1                   FCLV_LOOP1
-00000055:00000008             gbl_FCLV_LOOP2                   FCLV_LOOP2
-00000056:00000008             CompTempVar2228                 
-00000057:00000008             CompTempVar2214                 
-00000058:00000008             CompTempVar2215                 
-00000059:00000008             CompTempVar2216                 
-0000005A:00000008             delay_us_00000_arg_del           del
-0000005B:00000008             CompTempVar2218                 
-0000005C:00000008             CompTempVar2219                 
-0000005D:00000008             CompTempVar2220                 
-0000005E:00000008             CompTempVar2224                 
-0000005F:00000008             CompTempVar2225                 
-00000060:00000008             CompTempVarRet220                $ret
+00000053:00000008             gbl_FCV_TODISPLAY_SS             FCV_TODISPLAY_SS
+00000054:00000008             gbl_FCV_TO_SET                   FCV_TO_SET
+00000055:00000008             gbl_FCV_TEMP_SCAN2               FCV_TEMP_SCAN2
+00000056:00000008             gbl_FCLV_LOOP1                   FCLV_LOOP1
+00000057:00000008             gbl_FCLV_LOOP2                   FCLV_LOOP2
+00000058:00000008             gbl_FCLV_LOOP3                   FCLV_LOOP3
+00000059:00000008             CompTempVar2248                 
+0000005A:00000008             CompTempVar2247                 
+0000005B:00000008             CompTempVar2230                 
+0000005C:00000008             CompTempVar2231                 
+0000005D:00000008             CompTempVar2232                 
+0000005E:00000008             CompTempVar2233                 
+0000005F:00000008             CompTempVar2234                 
+00000060:00000008             CompTempVar2235                 
+00000061:00000008             CompTempVar2236                 
+00000062:00000008             CompTempVar2237                 
+00000063:00000008             CompTempVar2238                 
+00000064:00000008             CompTempVar2239                 
+00000065:00000008             CompTempVar2240                 
+00000066:00000008             CompTempVar2241                 
+00000067:00000008             CompTempVar2242                 
+00000068:00000008             CompTempVar2243                 
+00000069:00000008             CompTempVar2244                 
+0000006A:00000008             CompTempVar2245                 
+0000006B:00000008             delay_us_00000_arg_del           del
+0000006C:00000008             CompTempVar2194                 
+0000006D:00000008             __div_8_8_00000_arg_a            a
+0000006E:00000008             __div_8_8_00000_arg_b            b
+0000006F:00000008             __rem_8_8_00000_1_c              c
+00000070:00000008             __rem_8_8_00000_1_i              i
+00000071:00000008             CompTempVarRet220                $ret
 0000007F:00000008             Int1Context                      Int1Context
 00000081:00000008             gbl_option_reg                   option_reg
 00000085:00000008             gbl_trisa                        trisa
@@ -125,6 +144,6 @@ Address  Bit Lengh Bit Mask   Unique Name                      Name
 
 Memory Usage Report
 ===================
-RAM available:224 bytes, used:66 bytes (29.5%), free:158 bytes (70.5%), 
-Heap size:158 bytes, Heap max single alloc:94 bytes
-ROM available:2048 words, used:991 words (48.4%), free:1057 words (51.6%)
+RAM available:224 bytes, used:83 bytes (37.1%), free:141 bytes (62.9%), 
+Heap size:141 bytes, Heap max single alloc:79 bytes
+ROM available:2048 words, used:1414 words (69.1%), free:634 words (30.9%)
