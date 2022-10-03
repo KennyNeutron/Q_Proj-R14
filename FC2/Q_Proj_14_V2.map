@@ -16,26 +16,26 @@ Address  Length   Unique Name      Name
 00000000:00000004 _resetvector     _resetvector  
 00000004:0000000C _interruptVector _interruptVector  
 00000010:00000005 delay_us_00000   delay_us(unsigned char)  
-00000015:0000011F FCM_TIMEKE_0005A FCM_TIMEKEEP(void)  
-00000134:00000015 FCM_clk_pu_00052 FCM_clk_pulse(void)  
-00000149:0000007A FCM_SevenS_00051 FCM_SevenSegment(void)  
-000001C3:00000050 FCM_Scan_S_00053 FCM_Scan_ShiftReg(void)  
-00000213:00000011 __rem_8_8_00000  __rem_8_8(unsigned char,unsigned char)  
-00000224:00000011 __div_8_8_00000  __div_8_8(unsigned char,unsigned char)  
-00000235:00000038 FCM_btn_sc_00058 FCM_btn_scan3(void)  
-0000026D:00000036 FCM_btn_sc_00057 FCM_btn_scan2(void)  
-000002A3:00000036 FCM_btn_sc_00056 FCM_btn_scan1(void)  
-000002D9:0000000D FCM_Displa_00054 FCM_Display_7Seg(void)  
-000002E6:000000BD FCM_button_0005C FCM_button_condition_SETTING(void)  
-000003A3:000000CA FCM_button_00059 FCM_button_conditions(void)  
-0000046D:0000001D FCM_VARIAB_0005E FCM_VARIABLE_RESET(void)  
-0000048A:00000037 FCM_SB_con_0005D FCM_SB_conditions(void)  
-000004C1:00000023 FCM_Interr_00055 FCM_Interrupt(void)  
-000004E4:0000027F FCM_DISPLA_0005B FCM_DISPLAY_BLINKING(void)  
-00000763:00000030 main             main(void)  
-00000793:00000057 _startup_00000   _startup(void)  
-000007EA:00000013 interrupt        interrupt(void)  
-000007FD:00000003 *Unused Block 
+00000015:00000121 FCM_TIMEKE_0005A FCM_TIMEKEEP(void)  
+00000136:00000015 FCM_clk_pu_00052 FCM_clk_pulse(void)  
+0000014B:0000007A FCM_SevenS_00051 FCM_SevenSegment(void)  
+000001C5:00000050 FCM_Scan_S_00053 FCM_Scan_ShiftReg(void)  
+00000215:00000011 __rem_8_8_00000  __rem_8_8(unsigned char,unsigned char)  
+00000226:00000011 __div_8_8_00000  __div_8_8(unsigned char,unsigned char)  
+00000237:00000038 FCM_btn_sc_00058 FCM_btn_scan3(void)  
+0000026F:00000036 FCM_btn_sc_00057 FCM_btn_scan2(void)  
+000002A5:00000036 FCM_btn_sc_00056 FCM_btn_scan1(void)  
+000002DB:0000000D FCM_Displa_00054 FCM_Display_7Seg(void)  
+000002E8:000000BD FCM_button_0005C FCM_button_condition_SETTING(void)  
+000003A5:000000CC FCM_button_00059 FCM_button_conditions(void)  
+00000471:00000015 FCM_VARIAB_0005E FCM_VARIABLE_RESET(void)  
+00000486:00000037 FCM_SB_con_0005D FCM_SB_conditions(void)  
+000004BD:00000023 FCM_Interr_00055 FCM_Interrupt(void)  
+000004E0:0000027F FCM_DISPLA_0005B FCM_DISPLAY_BLINKING(void)  
+0000075F:00000030 main             main(void)  
+0000078F:00000057 _startup_00000   _startup(void)  
+000007E6:00000013 interrupt        interrupt(void)  
+000007F9:00000007 *Unused Block 
 
 Register usage
 ==============
@@ -166,4 +166,4 @@ Memory Usage Report
 ===================
 RAM available:224 bytes, used:103 bytes (46.0%), free:121 bytes (54.0%), 
 Heap size:121 bytes, Heap max single alloc:72 bytes
-ROM available:2048 words, used:2045 words (99.9%), free:3 words (0.1%)
+ROM available:2048 words, used:2041 words (99.7%), free:7 words (0.3%)

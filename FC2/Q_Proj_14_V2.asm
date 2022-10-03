@@ -279,19 +279,19 @@ FCM_TIMEKE_0005A
 	INCF gbl_FCV_TIME_BUZZER_COUNTER, F
 	BTFSC STATUS,Z
 	INCF gbl_FCV_TIME_BUZZER_COUNTER+D'1', F
-	MOVLW 0x7F
+	MOVLW 0xFB
 	BSF STATUS, RP0
-	ANDWF gbl_trisb, W
-	MOVWF gbl_trisb
-	MOVLW 0x7F
+	ANDWF gbl_trisa, W
+	MOVWF gbl_trisa
+	MOVLW 0xFB
 	BCF STATUS, RP0
-	ANDWF gbl_portb, W
+	ANDWF gbl_porta, W
 	BSF STATUS, RP0
 	MOVWF CompTempVar2234
-	MOVLW 0x80
+	MOVLW 0x04
 	IORWF CompTempVar2234, W
 	BCF STATUS, RP0
-	MOVWF gbl_portb
+	MOVWF gbl_porta
 	MOVLW 0x0E
 	SUBWF gbl_FCV_TIME_BUZZER_COUNTER+D'1', W
 	BTFSS STATUS,Z
@@ -326,18 +326,19 @@ label4
 	IORWF CompTempVar2236, W
 	BTFSC STATUS,Z
 	GOTO	label5
-	MOVLW 0x7F
-	ANDWF gbl_trisb, W
-	MOVWF gbl_trisb
-	MOVLW 0x7F
+	MOVLW 0xFB
+	ANDWF gbl_trisa, W
+	MOVWF gbl_trisa
+	MOVLW 0xFB
 	BCF STATUS, RP0
-	ANDWF gbl_portb, W
-	MOVWF gbl_portb
+	ANDWF gbl_porta, W
+	MOVWF gbl_porta
 	MOVLW 0x18
 	MOVWF gbl_FCV_SHOTCLOCK
 	BCF gbl_FCV_FLAG_BUZZER,7
 	CLRF gbl_FCV_TIME_BUZZER_COUNTER
 	CLRF gbl_FCV_TIME_BUZZER_COUNTER+D'1'
+	BCF gbl_FCV_FLAG_TOG_BUZZ,3
 label5
 	BSF STATUS, RP0
 	CLRF CompTempVar2231
@@ -403,13 +404,13 @@ label10
 	ANDWF CompTempVar2240, W
 	BTFSC STATUS,Z
 	GOTO	label18
-	MOVLW 0x7F
-	ANDWF gbl_trisb, W
-	MOVWF gbl_trisb
-	MOVLW 0x7F
+	MOVLW 0xFB
+	ANDWF gbl_trisa, W
+	MOVWF gbl_trisa
+	MOVLW 0xFB
 	BCF STATUS, RP0
-	ANDWF gbl_portb, W
-	MOVWF gbl_portb
+	ANDWF gbl_porta, W
+	MOVWF gbl_porta
 	BSF STATUS, RP0
 	CLRF CompTempVar2242
 	MOVLW 0x04
@@ -482,6 +483,7 @@ label16
 	BCF gbl_FCV_FLAG_STARTSTOP,0
 label17
 	BCF gbl_FCV_FLAG_BUZZER,7
+	BCF gbl_FCV_FLAG_TOG_BUZZ,3
 label18
 	BCF STATUS, RP0
 	BTFSS gbl_FCV_FLAG_STARTSTOP,0
@@ -583,7 +585,7 @@ label26
 	RETURN
 ; } FCM_TIMEKEEP function end
 
-	ORG 0x00000134
+	ORG 0x00000136
 FCM_clk_pu_00052
 ; { FCM_clk_pulse ; function begin
 	MOVLW 0xEF
@@ -609,7 +611,7 @@ FCM_clk_pu_00052
 	RETURN
 ; } FCM_clk_pulse function end
 
-	ORG 0x00000149
+	ORG 0x0000014B
 FCM_SevenS_00051
 ; { FCM_SevenSegment ; function begin
 	BCF STATUS, RP0
@@ -750,7 +752,7 @@ label40
 	RETURN
 ; } FCM_SevenSegment function end
 
-	ORG 0x000001C3
+	ORG 0x000001C5
 FCM_Scan_S_00053
 ; { FCM_Scan_ShiftReg ; function begin
 	BCF STATUS, RP0
@@ -842,7 +844,7 @@ label47
 	GOTO	label45
 ; } FCM_Scan_ShiftReg function end
 
-	ORG 0x00000213
+	ORG 0x00000215
 __rem_8_8_00000
 ; { __rem_8_8 ; function begin
 	CLRF CompTempVarRet220
@@ -866,7 +868,7 @@ label49
 	GOTO	label48
 ; } __rem_8_8 function end
 
-	ORG 0x00000224
+	ORG 0x00000226
 __div_8_8_00000
 ; { __div_8_8 ; function begin
 	CLRF __div_8_8_00000_1_r
@@ -890,7 +892,7 @@ label51
 	GOTO	label50
 ; } __div_8_8 function end
 
-	ORG 0x00000235
+	ORG 0x00000237
 FCM_btn_sc_00058
 ; { FCM_btn_scan3 ; function begin
 	BSF STATUS, RP0
@@ -953,7 +955,7 @@ label53
 	RETURN
 ; } FCM_btn_scan3 function end
 
-	ORG 0x0000026D
+	ORG 0x0000026F
 FCM_btn_sc_00057
 ; { FCM_btn_scan2 ; function begin
 	BSF STATUS, RP0
@@ -1014,7 +1016,7 @@ label55
 	RETURN
 ; } FCM_btn_scan2 function end
 
-	ORG 0x000002A3
+	ORG 0x000002A5
 FCM_btn_sc_00056
 ; { FCM_btn_scan1 ; function begin
 	BSF STATUS, RP0
@@ -1075,7 +1077,7 @@ label57
 	RETURN
 ; } FCM_btn_scan1 function end
 
-	ORG 0x000002D9
+	ORG 0x000002DB
 FCM_Displa_00054
 ; { FCM_Display_7Seg ; function begin
 	MOVLW 0xFF
@@ -1093,7 +1095,7 @@ FCM_Displa_00054
 	RETURN
 ; } FCM_Display_7Seg function end
 
-	ORG 0x000002E6
+	ORG 0x000002E8
 FCM_button_0005C
 ; { FCM_button_condition_SETTING ; function begin
 	BCF STATUS, RP0
@@ -1300,7 +1302,7 @@ label70
 	RETURN
 ; } FCM_button_condition_SETTING function end
 
-	ORG 0x000003A3
+	ORG 0x000003A5
 FCM_button_00059
 ; { FCM_button_conditions ; function begin
 	BCF STATUS, RP0
@@ -1315,17 +1317,17 @@ FCM_button_00059
 	ANDWF CompTempVar2210, W
 	BTFSC STATUS,Z
 	GOTO	label71
-	MOVLW 0x7F
+	MOVLW 0xFB
 	BSF STATUS, RP0
-	ANDWF gbl_trisb, W
-	MOVWF gbl_trisb
-	MOVLW 0x7F
+	ANDWF gbl_trisa, W
+	MOVWF gbl_trisa
+	MOVLW 0xFB
 	BCF STATUS, RP0
-	ANDWF gbl_portb, W
+	ANDWF gbl_porta, W
 	MOVWF CompTempVar2213
-	MOVLW 0x80
+	MOVLW 0x04
 	IORWF CompTempVar2213, W
-	MOVWF gbl_portb
+	MOVWF gbl_porta
 	CLRF CompTempVar2212
 	BTFSC gbl_FCV_BTN_SHIFT,1
 	INCF CompTempVar2212, F
@@ -1338,14 +1340,14 @@ FCM_button_00059
 	BSF gbl_FCV_NEW_GAME,6
 	GOTO	label72
 label71
-	MOVLW 0x7F
+	MOVLW 0xFB
 	BSF STATUS, RP0
-	ANDWF gbl_trisb, W
-	MOVWF gbl_trisb
-	MOVLW 0x7F
+	ANDWF gbl_trisa, W
+	MOVWF gbl_trisa
+	MOVLW 0xFB
 	BCF STATUS, RP0
-	ANDWF gbl_portb, W
-	MOVWF gbl_portb
+	ANDWF gbl_porta, W
+	MOVWF gbl_porta
 label72
 	BTFSC gbl_FCV_WINNER_AVAILABLE,5
 	RETURN
@@ -1494,6 +1496,8 @@ label86
 	BSF gbl_FCV_TOGGLE_SHOTCLOCK,2
 	CLRF gbl_FCV_TIME_COUNTER
 	CLRF gbl_FCV_TIME_COUNTER+D'1'
+	BCF gbl_FCV_FLAG_TOG_BUZZ,3
+	BCF gbl_FCV_FLAG_BUZZER,7
 label87
 	CLRF CompTempVar2221
 	BTFSC gbl_FCV_BTN_STARTSTOP,0
@@ -1528,7 +1532,7 @@ label91
 	RETURN
 ; } FCM_button_conditions function end
 
-	ORG 0x0000046D
+	ORG 0x00000471
 FCM_VARIAB_0005E
 ; { FCM_VARIABLE_RESET ; function begin
 	MOVLW 0x0A
@@ -1546,23 +1550,15 @@ FCM_VARIAB_0005E
 	BCF gbl_FCV_WINNER,2
 	BCF gbl_FCV_WINNER_AVAILABLE,5
 	BCF gbl_FCV_NEW_GAME,6
-	BSF gbl_FCV_FLAG_STARTSTOP,0
+	BCF gbl_FCV_FLAG_STARTSTOP,0
 	BCF gbl_FCV_FLAG_BUZZER,7
 	BCF gbl_FCV_FLAG_SETTIME,1
 	BCF gbl_FCV_FLAG_TOG_BUZZ,3
-	BCF gbl_FCV_BTN_BUZZER,3
-	BCF gbl_FCV_BTN_GUEST,6
-	BCF gbl_FCV_BTN_HOME,0
-	BCF gbl_FCV_BTN_SHIFT,1
-	CLRF gbl_FCV_BTN_SHOTCLOCK
 	BCF gbl_FCV_BTN_STARTSTOP,0
-	BCF gbl_FCV_FLAG_STARTSTOP,0
-	MOVLW 0x01
-	MOVWF gbl_FCV_TO_SET
 	RETURN
 ; } FCM_VARIABLE_RESET function end
 
-	ORG 0x0000048A
+	ORG 0x00000486
 FCM_SB_con_0005D
 ; { FCM_SB_conditions ; function begin
 	BCF STATUS, RP0
@@ -1623,7 +1619,7 @@ label92
 	RETURN
 ; } FCM_SB_conditions function end
 
-	ORG 0x000004C1
+	ORG 0x000004BD
 FCM_Interr_00055
 ; { FCM_Interrupt ; function begin
 	BCF STATUS, RP0
@@ -1668,7 +1664,7 @@ label97
 	RETURN
 ; } FCM_Interrupt function end
 
-	ORG 0x000004E4
+	ORG 0x000004E0
 FCM_DISPLA_0005B
 ; { FCM_DISPLAY_BLINKING ; function begin
 	BCF STATUS, RP0
@@ -2347,7 +2343,7 @@ label132
 	RETURN
 ; } FCM_DISPLAY_BLINKING function end
 
-	ORG 0x00000763
+	ORG 0x0000075F
 main
 ; { main ; function begin
 	MOVLW 0x07
@@ -2404,7 +2400,7 @@ label136
 	GOTO	label134
 ; } main function end
 
-	ORG 0x00000793
+	ORG 0x0000078F
 _startup
 	MOVLW 0xD5
 	BCF STATUS, RP0
@@ -2493,7 +2489,7 @@ _startup
 	BCF PCLATH,3
 	BCF PCLATH,4
 	GOTO	main
-	ORG 0x000007EA
+	ORG 0x000007E6
 interrupt
 ; { interrupt ; function begin
 	BCF STATUS, RP0
